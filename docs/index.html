@@ -33,12 +33,35 @@
              background-color: rgb(1, 1, 2);
          }
 
+         main {
+             margin: 0 2rem;
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-around;
+         }
+
+         footer {
+             position: fixed;
+             left: 2rem;
+             bottom: 0.5rem;
+             color: rgba(247, 247, 253, 0.4);
+             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+             font-size: 1.44rem;
+             line-height: 2rem;
+         }
+
+         footer .copy {
+             line-height: 1rem;
+             font-size: 0.79rem;
+         }
+
          h1 {
              font-family:    "Monopol", "Roboto", "Helvetica", sans-serif;
              font-weight:   300;
              letter-spacing: 0;
              text-shadow: 4px 4px 2px rgb(1, 1, 2);
          }
+
 
          .mdl-card {
              margin:    1rem 0;
@@ -90,6 +113,7 @@
          div:first-child > .standard-card .mdl-card__title {
              background-image: url('img/cbg1.jpg');
          }
+
          div:last-child > .standard-card .mdl-card__title {
              background-image: url('img/cbg3.jpg');
          }

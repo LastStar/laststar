@@ -27,6 +27,7 @@
                "more_vert"))
     (mdl/menu
      {:mdl [:ripple :bottom-right] :for :menu}
+     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :intro))} "Intro")
      (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :about))} "About")
      (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :people))} "People")
      (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :technology))} "Technology")
@@ -38,11 +39,6 @@
         page (rum/react (rum/cursor state :page/current))
         card-texts (rum/react (rum/cursor state (keyword "page" page)))]
     [:main
-     {:style {:margin          "0 2rem"
-              :display         :flex
-              :flex-wrap       :wrap
-              :justify-content :space-around
-              :min-height "47rem"}}
      (when (seq card-texts)
        (for [[key title text action] card-texts]
          [:div {:key key}
@@ -60,31 +56,29 @@
            (mdl/card-menu
             (mdl/button {:mdl [:icon :ripple]} (mdl/icon "share"))))]))]))
 
-(rum/defc footer []
-  [:footer
-   {:style {:color          semi-white
-            :font-family    "Roboto, Helvetica, Arial, sans-serif" ;
-            :display        :flex
-            :flex-direction :column
-            :align-items    :flex-start
-            :margin "1rem 2rem "}}
-   [:div
-    [:a
-     {style {:color semi-white}
-      :href "mailto:info@laststar.eu"}
-     "info@laststar.eu"]]
-   [:div "Reg. Id: 29051649"]
-   [:div "Husova 1200/63, Liberec 460 01 CZ"]
-   [:div
-    [:span "Copyright © 2017\u00A0"]
-    [:h1
-     {:style {:display        :inline
-              :font-size      "1rem"}}
-     "LastStar.eu s.r.o."]
-    [:span "\u00A0All Right Reserved"]]])
+(rum/defc footer < rum/reactive [store]
+  (let [page (rum/cursor (rxt/to-atom store) :page/current)]
+    [:footer
+     (if (= :intro (rum/react page))
+       [:div.contact
+        [:div
+         [:a
+          {:style {:color semi-white}
+           :href "mailto:info@laststar.eu"}
+          "info@laststar.eu"]]
+        [:div "Reg. Id: 29051649"]
+        [:div "Husova 1200/63, Liberec 460 01 CZ"]]
+       [:span])
+     [:div
+      [:span.copy "Copyright © 2017\u00A0"]
+      [:h1
+       {:style {:display        :inline
+                :font-size      "1rem"}}
+       "LastStar.eu s.r.o."]
+      [:span.copy "\u00A0All Right Reserved"]]]))
 
 (rum/defc page [store]
   [:div
    (header store)
    (body store)
-   (footer)])
+   (footer store)])
