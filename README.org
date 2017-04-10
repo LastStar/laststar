@@ -1,0 +1,17 @@
+#+TITLE: LastStar.eu Webpage
+#+AUTHOR: Ing. Josef Pospíšil
+#+EMAIL: josef.pospisil@laststar.eu
+#+DATE: [2017-04-10 Mon] 
+#+LANGUAGE: en
+
+* General
+Web pages of the company. All the basic information should be displayed here.
+* Technology
+** Summary
+[[https://clojurescript.org][ClojureScript]]  - Clojure based language compiled to company
+[[https://github.com/tonsky/rum][Rum]] - React.js wrapper for ClojureScript
+[[https://github.com/funcool/potok][Potok]] - Reactive streams for ClojureScript
+** Development
+*** Install Clojure and Boot
+*** Clone the repo
+*** Run `boot dev`
