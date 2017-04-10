@@ -16,10 +16,7 @@
             :color           white}}
    [:h1
     {:style {:margin         "0 2rem"
-             :font-size      "10rem"
-             :font-family    "Monopol"
-             :font-weight    "100"
-             :letter-spacing "0"}}
+             :font-size      "10rem"}}
     "LastStar.eu"]
    [:div {:style {:margin "3rem 2rem"}}
     (mdl/button
@@ -82,10 +79,7 @@
     [:span "Copyright © 2017\u00A0"]
     [:h1
      {:style {:display        :inline
-              :font-size      "1rem"
-              :font-family    "Monopol"
-              :font-weight    "100"
-              :letter-spacing "0"}}
+              :font-size      "1rem"}}
      "LastStar.eu s.r.o."]
     [:span "\u00A0All Right Reserved"]]])
 
