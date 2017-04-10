@@ -15,7 +15,7 @@
              false]
             [:optimalization
              "Optimalization"
-             "So many companies have problem with managing and connecting wide range of ICT systems on day to day basis. We can help also."
+             "So many companies have problem with managing and connecting wide range of ICT systems on day to day basis. We can help with that."
              false]]
            :page/people
            [[:pepe
@@ -25,12 +25,15 @@
             [:vendi
              "Vendula 'vendi' Pospíšilová"
              "The company executor also becoming the data scientist. Animal lover, forestry post-Doc."
-             false]]
+             false]
+            [:sheik
+             "Aleš 'sheik' Chrenka"
+             "Silent man in the background, solving hardest problems and advice the direction of the whole company."]]
            :page/about
            [[:about
              "About the Company"
              [:p.bigger
-              "We are growing Software and Hardware developing company. Initially founded by\u00A0parents on the children leave, reborn as professional collective, trying to change world around us. We are currently  looking for opportunities to show our craft. Feel free to contact us with any questions."]
+              "We are growing Software and Hardware developing company. Initially founded by\u00A0parents on the children leave, reborn as professional collective, trying to change\u00A0the world around us. We are currently  looking for opportunities to show off our craft. Feel free to contact us with any questions."]
              false]]
            :page/contact
            [[:contact

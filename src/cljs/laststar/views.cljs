@@ -20,10 +20,11 @@
 (rum/defc header [store]
   [:header
    [:h1
-    {:style {:margin    "0 2rem"
-             :font-size "10rem"}}
+    {:style {:margin      "0 2rem"
+             :font-size   "10rem"
+             :line-height "10rem"}}
     "LastStar.eu"]
-   [:div {:style {:margin "3rem 2rem"}}
+   [:div
     (mdl/button
      {:mdl   [:icon]
       :id    :menu
