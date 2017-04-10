@@ -12,6 +12,10 @@
             [:iot
              "IoT"
              "The future of human interaction is defined by this new area of information technologies."
+             true]
+            [:optimalization
+             "Optimalization"
+             "So many companies have problem with managing and connecting wide range of ICT systems on day to day basis. We can help also."
              true]]
            :page/people
            [[:pepe
