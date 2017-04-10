@@ -16,23 +16,63 @@
          html {
              font-size: 16px
          }
+
          body {
              min-width: 60rem;
              background-image: url('/img/bg.jpg');
-             background-size: cover
+             background-position: center;
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-color: rgb(1, 1, 2);
          }
 
-         .wide-card .mdl-card__title {
-             height: 8rem;
+
+         .mdl-card {
+             margin:    1rem 0;
+         }
+
+         p.bigger {
+             font-size: 1.44rem;
+             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+             padding: 1rem;
+         }
+
+         .standard-card {
+             width:     45vw;
+             min-width: 19rem;
+             max-width: 35rem;
+             height:    23rem;
+         }
+
+         .wide-card {
+             width:     90vw;
+             min-width: 45rem;
+             max-width: 60rem;
+             height:    25rem;
+         }
+
+         .wide-card h4 {
+             margin: 0;
+         }
+
+         .mdl-card__title {
+             height: 18rem;
              background-image: url('/img/cbg2.jpg');
              background-size: cover;
-             color: white
          }
 
-         .wide-card:first-child .mdl-card__title {
+         .standard-card .mdl-card__title-text,
+         .wide-card .mdl-card__title-text{
+             color: white;
+             font-family: "Monopol", "Helvetica", "Arial", sans-serif;
+             font-weight: 400;
+             font-size: 4rem;
+         }
+
+         div:first-child > .standard-card .mdl-card__title {
              background-image: url('/img/cbg1.jpg');
          }
-         .wide-card:last-child .mdl-card__title {
+         div:last-child > .standard-card .mdl-card__title {
              background-image: url('/img/cbg3.jpg');
          }
 

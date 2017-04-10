@@ -1,0 +1,96 @@
+(ns laststar.views
+  (:require
+   [rum.core :as rum]
+   [rum.mdl :as mdl]
+   [potok.core :as ptk]
+   [beicon.core :as rxt]
+   [laststar.events :refer [->SetPage ->SetCategory]]))
+
+(defonce white "rgba(247, 247, 253, 0.7)")
+(defonce semi-white "rgba(247, 247, 253, 0.4)")
+
+(rum/defc header [store]
+  [:header
+   {:style {:display         :flex
+            :justify-content :space-between
+            :color           white}}
+   [:h1
+    {:style {:margin         "0 2rem"
+             :font-size      "10rem"
+             :font-family    "Monopol"
+             :font-weight    "100"
+             :letter-spacing "0"}}
+    "LastStar.eu"]
+   [:div {:style {:margin "3rem 2rem"}}
+    (mdl/button
+     {:mdl   [:icon]
+      :id    :menu
+      :style {:width "3rem" :height "3rem" :background semi-white}}
+     (mdl/icon {:style {:font-size "2rem" :width "2rem" :left "40%"}}
+               "more_vert"))
+    (mdl/menu
+     {:mdl [:ripple :bottom-right] :for :menu}
+     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :about))} "About")
+     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :people))} "People")
+     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :technology))} "Technology")
+     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :contact))} "Contact")
+     )]])
+
+(rum/defc body < rum/reactive [store]
+  (let [state (rxt/to-atom store)
+        page (rum/react (rum/cursor state :page/current))
+        card-texts (rum/react (rum/cursor state (keyword "page" page)))]
+    [:main
+     {:style {:margin          "0 2rem"
+              :display         :flex
+              :flex-wrap       :wrap
+              :justify-content :space-around
+              :min-height "47rem"}}
+     (when (seq card-texts)
+       (for [[key title text action] card-texts]
+         [:div {:key key}
+          (mdl/card
+           {:mdl   [:shadow--2dp]
+            :class (if (= (count card-texts) 1) :wide-card :standard-card)}
+           (mdl/card-title title)
+           (mdl/card-text text)
+           (if action
+             (mdl/card-action
+              {:mdl [:border]}
+              (mdl/button {:mdl [:colored :ripple]
+                           :on-click #(ptk/emit! store (->SetCategory key))} "Tell me more"))
+             [:div])
+           (mdl/card-menu
+            (mdl/button {:mdl [:icon :ripple]} (mdl/icon "share"))))]))]))
+
+(rum/defc footer []
+  [:footer
+   {:style {:color          semi-white
+            :font-family    "Roboto, Helvetica, Arial, sans-serif" ;
+            :display        :flex
+            :flex-direction :column
+            :align-items    :flex-start
+            :margin "1rem 2rem "}}
+   [:div
+    [:a
+     {style {:color semi-white}
+      :href "mailto:info@laststar.eu"}
+     "info@laststar.eu"]]
+   [:div "Reg. Id: 29051649"]
+   [:div "Husova 1200/63, Liberec 460 01 CZ"]
+   [:div
+    [:span "Copyright © 2017\u00A0"]
+    [:h1
+     {:style {:display        :inline
+              :font-size      "1rem"
+              :font-family    "Monopol"
+              :font-weight    "100"
+              :letter-spacing "0"}}
+     "LastStar.eu s.r.o."]
+    [:span "\u00A0All Right Reserved"]]])
+
+(rum/defc page [store]
+  [:div
+   (header store)
+   (body store)
+   (footer)])
