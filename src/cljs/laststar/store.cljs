@@ -8,24 +8,24 @@
            [[:clojure
              "Clojure"
              "We strongly believe in Clojure and its ecosystem. We are on the forefront of this new way of programming."
-             "Tell me more"]
+             false]
             [:iot
              "IoT"
              "The future of human interaction is defined by this new area of information technologies."
-             true]
+             false]
             [:optimalization
              "Optimalization"
              "So many companies have problem with managing and connecting wide range of ICT systems on day to day basis. We can help also."
-             true]]
+             false]]
            :page/people
            [[:pepe
              "Josef 'pepe' Pospíšil"
              "First Rubyist in the Czech Republic. Father of three, world citizen and party animal."
-             true]
+             false]
             [:vendi
              "Vendula 'vendi' Pospíšilová"
              "The company executor also becoming the data scientist. Animal lover, forestry post-Doc."
-             true]]
+             false]]
            :page/about
            [[:about
              "About the Company"

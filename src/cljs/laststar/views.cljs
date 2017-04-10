@@ -9,14 +9,19 @@
 (defonce white "rgba(247, 247, 253, 0.7)")
 (defonce semi-white "rgba(247, 247, 253, 0.4)")
 
+(rum/defc menu-item < rum/reactive [store key title]
+  (let [state (rxt/to-atom store)
+        page (rum/cursor (rxt/to-atom store) :page/current)]
+    (mdl/menu-item
+     {:disabled (= (rum/react page) key)
+      :on-click #(ptk/emit! store (->SetPage key))}
+     title)))
+
 (rum/defc header [store]
   [:header
-   {:style {:display         :flex
-            :justify-content :space-between
-            :color           white}}
    [:h1
-    {:style {:margin         "0 2rem"
-             :font-size      "10rem"}}
+    {:style {:margin    "0 2rem"
+             :font-size "10rem"}}
     "LastStar.eu"]
    [:div {:style {:margin "3rem 2rem"}}
     (mdl/button
@@ -27,12 +32,13 @@
                "more_vert"))
     (mdl/menu
      {:mdl [:ripple :bottom-right] :for :menu}
-     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :intro))} "Intro")
-     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :about))} "About")
-     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :people))} "People")
-     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :technology))} "Technology")
-     (mdl/menu-item {:on-click #(ptk/emit! store (->SetPage :contact))} "Contact")
-     )]])
+     (for [[key title] {:intro      "Intro"
+                        :about      "About"
+                        :people     "People"
+                        :technology "Technology"
+                        :contact    "Contact"}]
+       [:div {:key key}
+        (menu-item store key title)]))]])
 
 (rum/defc body < rum/reactive [store]
   (let [state (rxt/to-atom store)
