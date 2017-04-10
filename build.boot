@@ -75,3 +75,10 @@
   (comp (testing)
         (watch)
         (test-cljs :js-env :phantom)))
+
+(deftask prod
+  "Simple alias to build production build"
+  []
+  (comp (production)
+        (build)
+        (target :dir #{"docs"})))
