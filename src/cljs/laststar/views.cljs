@@ -63,19 +63,13 @@
      (if (= :intro (rum/react page))
        [:div.contact
         [:div
-         [:a
-          {:style {:color semi-white}
-           :href "mailto:info@laststar.eu"}
-          "info@laststar.eu"]]
+         [:a {:href "mailto:info@laststar.eu"} "info@laststar.eu"]]
         [:div "Reg. Id: 29051649"]
         [:div "Husova 1200/63, Liberec 460 01 CZ"]]
        [:span])
      [:div
       [:span.copy "Copyright © 2017\u00A0"]
-      [:h1
-       {:style {:display        :inline
-                :font-size      "1rem"}}
-       "LastStar.eu s.r.o."]
+      [:h1 "LastStar.eu s.r.o."]
       [:span.copy "\u00A0All Right Reserved"]]]))
 
 (rum/defc page [store]
