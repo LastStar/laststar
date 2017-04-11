@@ -13,7 +13,7 @@
         <style>
          @font-face {
              font-family: 'Monopol';
-             url('fonts/MonopolLight.woff') format('woff'),
+             src: url('fonts/MonopolLight.woff') Format('woff'),
              url('fonts/MonopolLight.svg') format('svg'),
              local('☺');
              font-weight: 300;
@@ -25,7 +25,6 @@
          }
 
          body {
-             min-width: 60rem;
              background-image: url('img/bg.jpg');
              background-position: center;
              background-size: cover;
@@ -40,9 +39,26 @@
          }
 
          header > div {
-             margin: 1.44rem 2rem;
+             margin: 2.44rem 2rem;
          }
 
+         header > h1 {
+             margin: 1rem 2rem;
+             font-size: 8rem;
+             line-height: 8rem;
+         }
+
+         button#menu {
+             width: 3rem;
+             height: 3rem;
+             background: rgba(247, 247, 253, 0.4);
+         }
+
+         button#menu > i {
+             font-size: 2rem;
+             width: 2rem;
+             left: 40%;
+         }
          main {
              margin: 0 2rem 2rem;
              display: flex;
@@ -97,7 +113,6 @@
 
          .wide-card {
              width:     90vw;
-             min-width: 45rem;
              max-width: 60rem;
              height:    25rem;
          }
@@ -129,6 +144,69 @@
              background-image: url('img/cbg3.jpg');
          }
 
+         @media screen and (max-width: 420px)  {
+             header > h1 {
+                 font-size: 4rem;
+                 line-height: 4rem;
+             }
+
+             button#menu {
+                 width: 2rem;
+                 height: 2rem;
+             }
+
+             button#menu > i {
+                 font-size: 1.5rem;
+                 width: 1.5rem;
+                 left: 50%;
+             }
+
+             header > div {
+                 margin: 1.44rem 1rem;
+             }
+
+             .about .wide-card {
+                 height: 40rem;
+             }
+
+             .contact .wide-card {
+                 height: 23rem;
+             }
+
+             .contact .wide-card h4 {
+                 font-size: 1.2rem;
+                 line-height: 1.8rem;
+             }
+         }
+
+         @media screen and (max-width: 320px)  {
+             .about .wide-card {
+                 height: 45rem;
+             }
+
+             .contact .wide-card h4 {
+                 font-size: 1rem;
+                 line-height: 1.5rem;
+             }
+         }
+
+         @media screen and (max-width: 480px)  {
+             .about .wide-card {
+                 height: 35rem;
+             }
+         }
+
+         @media screen and (max-width: 600px)  {
+             .about .wide-card {
+                 height: 31rem;
+             }
+         }
+
+         @media screen and (max-width: 800px)  {
+             .about .wide-card {
+                 height: 30rem;
+             }
+         }
         </style>
         <div id="container"></div>
         <script type="text/javascript" src="js/app.js"></script>

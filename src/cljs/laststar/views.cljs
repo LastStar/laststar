@@ -20,17 +20,11 @@
 (rum/defc header [store]
   [:header
    [:h1
-    {:style {:margin      "0 2rem"
-             :font-size   "10rem"
-             :line-height "10rem"}}
     "LastStar.eu"]
    [:div
     (mdl/button
-     {:mdl   [:icon]
-      :id    :menu
-      :style {:width "3rem" :height "3rem" :background semi-white}}
-     (mdl/icon {:style {:font-size "2rem" :width "2rem" :left "40%"}}
-               "more_vert"))
+     {:mdl [:icon] :id :menu}
+     (mdl/icon "more_vert"))
     (mdl/menu
      {:mdl [:ripple :bottom-right] :for :menu}
      (for [[key title] {:intro      "Intro"
@@ -48,7 +42,7 @@
     [:main
      (when (seq card-texts)
        (for [[key title text action] card-texts]
-         [:div {:key key}
+         [:div {:key key :class page}
           (mdl/card
            {:mdl   [:shadow--2dp]
             :class (if (= (count card-texts) 1) :wide-card :standard-card)}
