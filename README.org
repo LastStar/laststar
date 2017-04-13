@@ -8,9 +8,9 @@
 Web pages of the company. All the basic information should be displayed here.
 * Technology
 ** Summary
-[[https://clojurescript.org][ClojureScript]]  - Clojure based language compiled to company
-[[https://github.com/tonsky/rum][Rum]] - React.js wrapper for ClojureScript
-[[https://github.com/funcool/potok][Potok]] - Reactive streams for ClojureScript
+*** [[https://clojurescript.org][ClojureScript]]  - Clojure based language compiled to company
+*** [[https://github.com/tonsky/rum][Rum]] - React.js wrapper for ClojureScript
+*** [[https://github.com/funcool/potok][Potok]] - Reactive streams for ClojureScript
 ** Development
 *** Install Clojure and Boot
 *** Clone the repo

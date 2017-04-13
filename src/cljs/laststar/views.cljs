@@ -41,11 +41,12 @@
         card-texts (rum/react (rum/cursor state (keyword "page" page)))]
     [:main
      (when (seq card-texts)
-       (for [[key title text action] card-texts]
+       (for [[key title text action] card-texts
+             :let [class [key (if (= (count card-texts) 1) :wide-card :standard-card)]]]
          [:div {:key key :class page}
           (mdl/card
            {:mdl   [:shadow--2dp]
-            :class (if (= (count card-texts) 1) :wide-card :standard-card)}
+            :class class}
            (mdl/card-title title)
            (mdl/card-text text)
            (if action
@@ -64,7 +65,9 @@
        [:div.contact
         [:div
          [:a {:href "mailto:info@laststar.eu"} "info@laststar.eu"]]
-        [:div "Reg. Id: 29051649"]
+        [:div [:a
+               {:href "https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=39004&typ=UPLNY"}
+               "Reg. Id: 29051649"]]
         [:div "Husova 1200/63, Liberec 460 01 CZ"]]
        [:span])
      [:div
