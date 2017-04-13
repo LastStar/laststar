@@ -152,6 +152,14 @@
              background-image: url('../img/cbg3.jpg');
          }
 
+         .about > .wide-card .mdl-card__title {
+             background-image: url('../img/cbg2.jpg');
+         }
+
+         .contact > .wide-card .mdl-card__title {
+             background-image: url('../img/cbg3.jpg');
+         }
+
          .mdl-card.clojure.standard-card > .mdl-card__title {
              background-image: url('../img/clj.svg');
          }

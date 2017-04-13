@@ -43,7 +43,10 @@
                [:a
                 {:href "mailto:info@laststar.eu"}
                 "info@laststar.eu"]]
-              [:h4 "Reg. Id: 29051649"]
+              [:h4
+               [:a
+                {:href "https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=39004&typ=UPLNY"}
+                "Reg. Id: 29051649"]]
               [:h4 "Husova 1200/63, Liberec 460 01 CZ"]]
              false]]}})
 
