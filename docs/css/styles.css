@@ -22,7 +22,6 @@
          header {
              display: flex;
              justify-content: space-between;
-             color: rgba(247, 247, 253, 0.8);
          }
 
          header > div {
@@ -33,6 +32,12 @@
              margin: 1rem 2rem;
              font-size: 8rem;
              line-height: 8rem;
+         }
+
+         header > h1 > a {
+             color: rgba(247, 247, 253, 0.8);
+             text-decoration: none;
+
          }
 
          button#menu {

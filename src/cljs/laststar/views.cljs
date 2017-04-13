@@ -20,15 +20,14 @@
 (rum/defc header [store]
   [:header
    [:h1
-    "LastStar.eu"]
+    [:a {:href "/"} "LastStar.eu"]]
    [:div
     (mdl/button
      {:mdl [:icon] :id :menu}
      (mdl/icon "more_vert"))
     (mdl/menu
      {:mdl [:ripple :bottom-right] :for :menu}
-     (for [[key title] {:intro      "Intro"
-                        :about      "About"
+     (for [[key title] {:about      "About"
                         :people     "People"
                         :technology "Technology"
                         :contact    "Contact"}]
@@ -54,9 +53,7 @@
               {:mdl [:border]}
               (mdl/button {:mdl [:colored :ripple]
                            :on-click #(ptk/emit! store (->SetCategory key))} "Tell me more"))
-             [:div])
-           (mdl/card-menu
-            (mdl/button {:mdl [:icon :ripple]} (mdl/icon "share"))))]))]))
+             [:div]))]))]))
 
 (rum/defc footer < rum/reactive [store]
   (let [page (rum/cursor (rxt/to-atom store) :page/current)]
