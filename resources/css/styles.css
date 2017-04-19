@@ -1,237 +1,280 @@
-         @font-face {
-             font-family: 'Monopol';
-             src: url('../fonts/MonopolLight.woff') Format('woff'),
-             url('../fonts/MonopolLight.svg') format('svg'),
-             local('☺');
-             font-weight: 300;
-             font-style: normal;
-         }
+@font-face {
+    font-family: 'Monopol';
+    src: url('../fonts/MonopolLight.woff') Format('woff'),
+    url('../fonts/MonopolLight.svg') format('svg'),
+    local('☺');
+    font-weight: 300;
+    font-style: normal;
+}
 
-         html {
-             font-size: 16px
-         }
+html {
+    font-size: 16px
+}
 
-         body {
-             background-image: url('../img/bg.jpg');
-             background-position: center;
-             background-size: cover;
-             background-repeat: no-repeat;
-             background-color: rgb(1, 1, 2);
-         }
+body {
+    background-image: url('../img/bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(1, 1, 2);
+}
 
-         header {
-             display: flex;
-             justify-content: space-between;
-         }
+header {
+    display: flex;
+    justify-content: space-between;
+}
 
-         header > div {
-             margin: 2.44rem 2rem;
-         }
+header > div {
+    margin: 2.44rem 2rem;
+}
 
-         header > h1 {
-             margin: 1rem 2rem;
-             font-size: 8rem;
-             line-height: 8rem;
-         }
+header > h1 {
+    margin: 1rem 2rem;
+    font-size: 8rem;
+    line-height: 8rem;
+}
 
-         header > h1 > a {
-             color: rgba(247, 247, 253, 0.8);
-             text-decoration: none;
+header > h1 > a {
+    color: rgba(247, 247, 253, 0.8);
+    text-decoration: none;
 
-         }
+}
 
-         button#menu {
-             width: 3rem;
-             height: 3rem;
-             background: rgba(247, 247, 253, 0.5);
-         }
+button#menu {
+    width: 3rem;
+    height: 3rem;
+    background: rgba(247, 247, 253, 0.5);
+}
 
-         button#menu > i {
-             font-size: 2rem;
-             width: 2rem;
-             left: 40%;
-         }
-         main {
-             margin: 0 2rem 2rem;
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: space-around;
+button#menu > i {
+    font-size: 2rem;
+    width: 2rem;
+    left: 40%;
+}
+main {
+    margin: 0 2rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
-         }
+}
 
-         footer {
-             position: fixed;
-             left: 2rem;
-             bottom: 0.5rem;
-             color: rgba(247, 247, 253, 0.5);
-             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-             font-size: 1.44rem;
-             line-height: 2rem;
-         }
+footer {
+    position: fixed;
+    left: 2rem;
+    bottom: 0.5rem;
+    color: rgba(247, 247, 253, 0.5);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 1.44rem;
+    line-height: 2rem;
+}
 
-         footer .copy {
-             line-height: 1rem;
-             font-size: 0.79rem;
-         }
+footer .copy {
+    line-height: 1rem;
+    font-size: 0.79rem;
+}
 
-         footer h1 {
-             display:        inline;
-             font-size:      1rem;
-         }
+footer h1 {
+    display:        inline;
+    font-size:      1rem;
+}
 
-         footer a {
-             color: rgba(247, 247, 253, 0.8)
-         }
+footer a {
+    color: rgba(247, 247, 253, 0.8)
+}
 
-         h1 {
-             font-family:    "Monopol", "Roboto", "Helvetica", sans-serif;
-             font-weight:   300;
-             letter-spacing: 0;
-             text-shadow: 4px 4px 4px rgb(1, 1, 2);
-         }
+h1 {
+    font-family:    "Monopol", "Roboto", "Helvetica", sans-serif;
+    font-weight:   300;
+    letter-spacing: 0;
+    text-shadow: 4px 4px 4px rgb(1, 1, 2);
+}
 
 
-         .mdl-card {
-             margin:    1rem 0;
-             background-color: rgba(255, 255, 255, 0.8);
-         }
+.mdl-card {
+    margin:    1rem 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
 
-         h2.mdl-card__title-text {
-             width: 100%;
-         }
+h2.mdl-card__title-text {
+    width: 100%;
+}
 
-         p.bigger {
-             font-size: 1.44rem;
-             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-             padding: 1rem;
-         }
+p.bigger {
+    font-size: 1.44rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding: 1rem;
+    line-height: 1.719rem; 
+}
 
-         .standard-card {
-             width:     45vw;
-             min-width: 19rem;
-             max-width: 35rem;
-             height:    23rem;
-         }
+.standard-card {
+    width:     35vw;
+    min-width: 19rem;
+    height:    23rem;
+}
 
-         .wide-card {
-             width:     90vw;
-             max-width: 60rem;
-             height:    25rem;
-         }
+.wide-card {
+    width:     90vw;
+    max-width: 60rem;
+    height:    25rem;
+}
 
-         .wide-card h4 {
-             margin: 0;
-         }
+.wide-card h4 {
+    margin: 0;
+}
 
-         .mdl-card__title {
-             height: 18rem;
-             background-image: url('../img/cbg2.jpg');
-             background-size: cover;
-         }
+.mdl-card__title {
+    height: 18rem;
+    background-image: url('../img/cbg2.jpg');
+    background-size: cover;
+}
 
-         .technology .standard-card .mdl-card__title {
-             background-size: 90%;
-             background-repeat: no-repeat;
-             background-position: center;
-         }
+.technology .standard-card .mdl-card__title {
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-         .standard-card .mdl-card__title-text,
-         .wide-card .mdl-card__title-text{
-             color: rgb(1, 1, 2);
-             font-family: "Monopol", "Roboto", "Helvetica", "Arial", sans-serif;
-             font-weight: 300;
-             font-size: 4rem;
-             text-shadow: 2px 2px 2px  rgba(247, 247, 253, 0.8);
-         }
+.mdl-card__supporting-text {
+    line-height: 1.25rem;
+    padding: 1 rem;
+    width: 90%;
+}
 
-         div:first-child > .standard-card .mdl-card__title {
-             background-image: url('../img/cbg1.jpg');
-         }
+.standard-card .mdl-card__title-text,
+.wide-card .mdl-card__title-text{
+    color: rgb(1, 1, 2);
+    font-family: "Monopol", "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px  rgba(247, 247, 253, 0.8);
+}
 
-         div:last-child > .standard-card .mdl-card__title {
-             background-image: url('../img/cbg3.jpg');
-         }
+div:first-child > .standard-card .mdl-card__title {
+    background-image: url('../img/cbg1.jpg');
+}
 
-         .about > .wide-card .mdl-card__title {
-             background-image: url('../img/cbg2.jpg');
-         }
+div:last-child > .standard-card .mdl-card__title {
+    background-image: url('../img/cbg3.jpg');
+}
 
-         .contact > .wide-card .mdl-card__title {
-             background-image: url('../img/cbg3.jpg');
-         }
+.about > .wide-card .mdl-card__title {
+    background-image: url('../img/cbg2.jpg');
+}
 
-         .mdl-card.clojure.standard-card > .mdl-card__title {
-             background-image: url('../img/clj.svg');
-         }
+.contact > .wide-card .mdl-card__title {
+    background-image: url('../img/cbg3.jpg');
+}
 
-         .mdl-card.iot.standard-card > .mdl-card__title {
-             background-image: url('../img/iot.svg');
-         }
+.mdl-card.clojure.standard-card > .mdl-card__title {
+    background-image: url('../img/clj.svg');
+}
 
-         .mdl-card.optimalization.standard-card > .mdl-card__title {
-             background-image: url('../img/opt.svg');
-         }
+.mdl-card.iot.standard-card > .mdl-card__title {
+    background-image: url('../img/iot.svg');
+}
 
-         @media screen and (max-width: 420px)  {
-             header > h1 {
-                 font-size: 4rem;
-                 line-height: 4rem;
-             }
+.mdl-card.optimalization.standard-card > .mdl-card__title {
+    background-image: url('../img/opt.svg');
+}
 
-             button#menu {
-                 width: 2rem;
-                 height: 2rem;
-             }
+@media screen and (max-width: 420px)  {
+    header > h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
 
-             button#menu > i {
-                 font-size: 1.5rem;
-                 width: 1.5rem;
-                 left: 50%;
-             }
+    button#menu {
+        width: 2rem;
+        height: 2rem;
+    }
 
-             header > div {
-                 margin: 1.44rem 1rem;
-             }
+    button#menu > i {
+        font-size: 1.5rem;
+        width: 1.5rem;
+        left: 50%;
+    }
 
-             .about .wide-card {
-                 height: 40rem;
-             }
+    header > div {
+        margin: 1.44rem 1rem;
+    }
 
-             .contact .wide-card {
-                 height: 23rem;
-             }
+    .about .wide-card {
+        height: 40rem;
+    }
 
-             .contact .wide-card h4 {
-                 font-size: 1.2rem;
-                 line-height: 1.8rem;
-             }
-         }
+    .contact .wide-card {
+        height: 23rem;
+    }
 
-         @media screen and (max-width: 320px)  {
-             .about .wide-card {
-                 height: 45rem;
-             }
+    .contact .wide-card h4 {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+}
 
-             .contact .wide-card h4 {
-                 font-size: 1rem;
-                 line-height: 1.5rem;
-             }
-         }
+@media screen and (max-width: 320px)  {
+    .about .wide-card {
+        height: 45rem;
+    }
 
-         @media screen and (max-width: 480px)  {
-             .about .wide-card {
-                 height: 35rem;
-             }
-         }
+    .contact .wide-card h4 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
 
-         @media screen and (max-width: 600px)  {
-             .about .wide-card {
-                 height: 31rem;
-             }
-         }
+@media screen and (max-width: 480px)  {
+    .about .wide-card {
+        height: 35rem;
+    }
+}
 
-         @media screen and (max-width: 800px)  {
-             .about .wide-card {
-                 height: 30rem;
-             }
-         }
+@media screen and (max-width: 600px)  {
+    .about .wide-card {
+        height: 31rem;
+    }
+}
+
+@media screen and (max-width: 800px)  {
+    .about .wide-card {
+        height: 30rem;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    html {
+        font-size: 20px;
+    }
+
+    button#menu > i {
+        left: 38%;
+    }
+}
+
+
+@media screen and (min-width: 1920px) {
+    html {
+        font-size: 24px;
+    }
+
+    button#menu > i {
+        left: 35%;
+    }
+}
+
+@media screen and (width: 1024px) and (height: 768px) {
+    .standard-card {
+        height: 15rem;
+        width: 43vw;
+    }
+
+    .mdl-card__title {
+        height: 12rem;
+    }
+
+    .technology .standard-card .mdl-card__title {
+        background-size: 80%;
+    }
+}
