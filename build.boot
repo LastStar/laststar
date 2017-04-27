@@ -6,7 +6,7 @@
                  [adzerk/boot-reload        "0.4.13"      :scope "test"]
                  [pandeiro/boot-http        "0.7.6"      :scope "test"]
                  [com.cemerick/piggieback   "0.2.1"      :scope "test"]
-                 [org.clojure/tools.nrepl   "0.2.12"     :scope "test"]
+                 [org.clojure/tools.nrepl   "0.2.13"     :scope "test"]
                  [weasel                    "0.7.0"      :scope "test"]
                  [org.clojure/clojurescript "1.9.293"]
                  [crisptrutski/boot-cljs-test "0.3.0" :scope "test"]
@@ -15,7 +15,7 @@
                  [funcool/potok                 "2.1.0"]
                  [funcool/bide                  "1.4.0"]
                  [binaryage/devtools "0.9.4" :scope "test"]
-                 [binaryage/dirac "1.2.4" :scope "test"]
+                 [binaryage/dirac "1.2.5" :scope "test"]
                  [powerlaces/boot-cljs-devtools "0.2.0" :scope "test"]])
 
 (require
