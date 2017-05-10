@@ -15,20 +15,20 @@
              false]
             [:optimalization
              "Optimalization"
-             "So many companies have problem with managing and connecting wide range of ICT systems on day to day basis. We can help with that."
+             "Many companies have problem with managing and connecting wide range of ICT systems on day to day basis. We can help with that."
              false]]
            :page/people
            [[:pepe
-             "Josef 'pepe' Pospíšil"
-             "First Rubyist in the Czech Republic. Father of three, world citizen and party animal."
+             "Josef Pospíšil"
+             "First Rubyist in the Czech Republic. Very long time software developer, technical brain of the company."
              false]
             [:vendi
-             "Vendula 'vendi' Pospíšilová"
+             "Vendula Pospíšilová"
              "The company executor also becoming the data scientist. Animal lover, forestry post-Doc."
              false]
             [:sheik
-             "Aleš 'sheik' Chrenka"
-             "Silent man in the background, solving hardest problems and advice the direction of the whole company."]]
+             "Aleš Chrenka"
+             "Silent man in the background, who advises the direction of the whole company."]]
            :page/about
            [[:about
              "About the Company"
