@@ -167,6 +167,10 @@ div:last-child > .standard-card .mdl-card__title {
     background-image: url('../img/cbg2.jpg');
 }
 
+.contact > .wide-card {
+    height: 29rem;
+}
+
 .contact > .wide-card .mdl-card__title {
     background-image: url('../img/cbg3.jpg');
 }

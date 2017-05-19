@@ -47,7 +47,11 @@
                [:a
                 {:href "https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=39004&typ=UPLNY"}
                 "Reg. Id: 29051649"]]
-              [:h4 "Husova 1200/63, Liberec 460 01 CZ"]]
+              [:h4 "Husova 1200/63, Liberec 460 01 CZ"]
+              [:h4 "Twitter: "
+               [:a {:href "https://twitter.com/laststareu"} "@laststareu"]]
+              [:h4 "Facebook: "
+               [:a {:href "https://www.facebook.com/LastStar.eu"} "@LastStar.eu"]]]
              false]]}})
 
 (defonce main
