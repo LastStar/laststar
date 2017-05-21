@@ -27,10 +27,10 @@
      (mdl/icon "more_vert"))
     (mdl/menu
      {:mdl [:ripple :bottom-right] :for :menu}
-     (for [[key title] {:about      "About"
-                        :people     "People"
-                        :technology "Technology"
-                        :contact    "Contact"}]
+     (for [[key title] {:page/about      "About"
+                        :page/people     "People"
+                        :page/technology "Technology"
+                        :page/contact    "Contact"}]
        [:div {:key key}
         (menu-item store key title)]))]])
 
@@ -58,7 +58,7 @@
 (rum/defc footer < rum/reactive [store]
   (let [page (rum/cursor (rxt/to-atom store) :page/current)]
     [:footer
-     (if (= :intro (rum/react page))
+     (if (= :page/intro (rum/react page))
        [:div.contact
         [:div
          [:a {:href "mailto:info@laststar.eu"} "info@laststar.eu"]]

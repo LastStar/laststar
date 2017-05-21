@@ -15,14 +15,6 @@
     (assoc state :page/current page))
   ptk/EffectEvent
   (effect [_ state _]
-    (rtr/navigate! routes/config :laststar/page {:page page})))
+    (when (satisfies? rtr/IRouter routes/config)
+      (rtr/navigate! routes/config page {}))))
 
-(defrecord RouteMatched [name params query]
-  ptk/WatchEvent
-  (watch [_ state _]
-    (let [page (keyword (:page params))]
-         (case name
-           :laststar/intro
-           (rxt/just (->SetPage :intro))
-           :laststar/page
-           (rxt/just (->SetPage page))))))

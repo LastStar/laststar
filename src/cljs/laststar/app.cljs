@@ -11,7 +11,6 @@
 (defn init []
   (rtr/start!
    routes/config
-   {:default     :laststar/intro
-    :on-navigate (fn [name params query]
-                   (ptk/emit! store/main (events/->RouteMatched name params query)))})
+   {:default     :page/intro
+    :on-navigate (fn [page _ _] (ptk/emit! store/main (events/->SetPage page)))})
   (mount (views/page store/main) (js/document.getElementById "container")))

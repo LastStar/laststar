@@ -2,8 +2,7 @@
  :source-paths    #{"src/cljs"}
  :resource-paths  #{"resources"}
  :dependencies '[[adzerk/boot-cljs          "1.7.228-2"  :scope "test"]
-                 [adzerk/boot-cljs-repl     "0.3.3"      :scope "test"]
-                 [adzerk/boot-reload        "0.4.13"      :scope "test"]
+                 [adzerk/boot-reload        "0.4.13"     :scope "test"]
                  [pandeiro/boot-http        "0.7.6"      :scope "test"]
                  [com.cemerick/piggieback   "0.2.1"      :scope "test"]
                  [org.clojure/tools.nrepl   "0.2.13"     :scope "test"]
@@ -20,7 +19,6 @@
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
- '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
  '[adzerk.boot-reload    :refer [reload]]
  '[pandeiro.boot-http    :refer [serve]]
  '[crisptrutski.boot-cljs-test :refer [test-cljs]]
@@ -36,7 +34,6 @@
 (deftask run []
   (comp (serve)
         (watch)
-        (cljs-repl)
         (cljs-devtools)
         (dirac)
         (reload)

@@ -2,7 +2,7 @@
   (:require [potok.core :as ptk]))
 
 (defonce initial-state
-  {:state {:page/current :intro
+  {:state {:page/current :page/intro
            :category/current nil
            :page/technology
            [[:clojure
