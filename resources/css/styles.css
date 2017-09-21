@@ -11,14 +11,14 @@ body {
 }
 
 .mdc-toolbar.big {
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 .mdc-toolbar {
     padding: 0 2rem;
     background-color: var(--mdc-theme-text-primary-on-light);
     z-index: 2;
-    transition: all 750ms;
+    transition: all 500ms;
 }
 
 .mdc-toolbar__title a {
@@ -28,13 +28,13 @@ body {
     letter-spacing: 0;
     text-decoration: none;
     color: var(--mdc-theme-text-primary-on-primary);
-    transition: all 750ms;
+    transition: all 500ms;
 }
 
 .mdc-toolbar.big .mdc-toolbar__title a {
     margin-top: 1rem;
-    font-size: 3rem;
-    transition: all 750ms;
+    font-size: 4rem;
+    transition: all 500ms;
 }
 
 
