@@ -1,190 +1,123 @@
-@font-face {
-    font-family: 'Monopol';
-    src: url('../fonts/MonopolLight.woff') Format('woff'),
-    url('../fonts/MonopolLight.svg') format('svg'),
-    local('☺');
-    font-weight: 300;
-    font-style: normal;
-}
-
 html {
     font-size: 16px
 }
 
 body {
-    background-image: url('../img/bg.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgb(1, 1, 2);
+    background-color: var(--mdc-theme-text-primary-on-light);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-header > div {
-    margin: 2.44rem 2rem;
-}
-
-header > h1 {
-    margin: 1rem 2rem;
-    font-size: 8rem;
-    line-height: 8rem;
-}
-
-header > h1 > a {
-    color: rgba(247, 247, 253, 0.8);
-    text-decoration: none;
+.mdc-toolbar {
+    background-color: var(--mdc-theme-text-primary-on-light);
+    z-index: 2;
 
 }
 
-button#menu {
-    width: 3rem;
-    height: 3rem;
-    background: rgba(247, 247, 253, 0.5);
-}
-
-button#menu > i {
-    font-size: 2rem;
-    width: 2rem;
-    left: 40%;
-}
-main {
-    margin: 0 2rem 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-}
-
-footer {
-    position: fixed;
-    left: 2rem;
-    bottom: 0.5rem;
-    color: rgba(247, 247, 253, 0.5);
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 1.44rem;
-    line-height: 2rem;
-}
-
-footer .copy {
-    line-height: 1rem;
-    font-size: 0.79rem;
-}
-
-footer h1 {
-    display:        inline;
-    font-size:      1rem;
-}
-
-footer a {
-    color: rgba(247, 247, 253, 0.8)
-}
-
-h1 {
+.mdc-toolbar__title {
     font-family:    "Monopol", "Roboto", "Helvetica", sans-serif;
-    font-weight:   300;
+    font-weight:   600;
+    font-size: 2rem;
     letter-spacing: 0;
-    text-shadow: 4px 4px 4px rgb(1, 1, 2);
 }
 
-
-.mdl-card {
-    margin:    1rem 0;
-    background-color: rgba(255, 255, 255, 0.8);
+.mdc-toolbar .links a {
+    color: var(--mdc-theme-accent);
 }
 
-h2.mdl-card__title-text {
+.mdc-toolbar .flags {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mdc-toolbar .flags img {
+    width: 1rem;
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 5rem;
+    height: calc(100vh - 4rem);
+    color: var(--mdc-theme-text-primary-on-primary);
+    background-color: var(--mdc-theme-text-primary-on-light);
+}
+
+.hero img {
+    width: 20vw;
+}
+
+.hero a {
+    color: var(--mdc-theme-accent);
+}
+
+section#about, section#contact {
+    background-color: var(--mdc-theme-background);
+}
+
+section#technology {
+    background-color: var(--mdc-theme-text-primary-on-light);
+    color: var(--mdc-theme-background);
+    z-index: 1;
+    position: relative;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+section.category .mdc-typography--body1 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+section#contact .mdc-typography--body1 {
+    font-size: 1.5625rem;
+    line-height: 1.953125rem;
+}
+
+section.category {
+    display: flex;
+    height: calc(50vh - 2rem);
     width: 100%;
 }
 
-p.bigger {
-    font-size: 1.1rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    padding: 1rem;
-    line-height: 1.44rem; 
+section.category  div {
+    width: 50%;
 }
 
-.standard-card {
-    width:     35vw;
-    min-width: 19rem;
-    height:    23rem;
+div.text > div, div.text > p {
+    padding: 2rem; 
 }
 
-.wide-card {
-    width:     90vw;
-    max-width: 60rem;
-    height:    25rem;
-}
-
-.wide-card h4 {
-    margin: 0;
-}
-
-.mdl-card__title {
-    height: 18rem;
-    background-image: url('../img/cbg2.jpg');
+div.image {
     background-size: cover;
 }
 
-.technology .standard-card .mdl-card__title {
-    background-size: 90%;
+div.image.contain {
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.mdl-card__supporting-text {
-    line-height: 1.25rem;
-    padding: 1 rem;
-    width: 90%;
+section.text .mdc-typography--body1 {
+    font-size: 1rem;
+    line-height: 1.5625rem;
 }
 
-.mdl-card__title {
-    padding: 0;
-}
-.standard-card .mdl-card__title-text,
-.wide-card .mdl-card__title-text{
-    color: rgb(1, 1, 2);
-    font-family: "Monopol", "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 300;
-    font-size: 4rem;
+section.text img {
     width: 100%;
-    padding: 0 1rem;
-    background: rgba(247, 247, 253, 0.5);
+    filter: grayscale(0.8);
+    transition: all 10s;
 }
 
-div:first-child > .standard-card .mdl-card__title {
-    background-image: url('../img/cbg1.jpg');
-}
-
-div:last-child > .standard-card .mdl-card__title {
-    background-image: url('../img/cbg3.jpg');
-}
-
-.about > .wide-card .mdl-card__title {
-    background-image: url('../img/cbg2.jpg');
-}
-
-.contact > .wide-card {
-    height: 29rem;
-}
-
-.contact > .wide-card .mdl-card__title {
-    background-image: url('../img/cbg3.jpg');
-}
-
-.mdl-card.clojure.standard-card > .mdl-card__title {
-    background-image: url('../img/clj.svg');
-}
-
-.mdl-card.iot.standard-card > .mdl-card__title {
-    background-image: url('../img/iot.svg');
-}
-
-.mdl-card.optimalization.standard-card > .mdl-card__title {
-    background-image: url('../img/opt.svg');
+section.text:hover img {
+    filter: grayscale(0.0);
+    transition: all 0.3s;
 }
 
 @media screen and (max-width: 420px)  {
@@ -290,4 +223,8 @@ div:last-child > .standard-card .mdl-card__title {
     .technology .standard-card .mdl-card__title {
         background-size: 80%;
     }
+}
+
+.about {
+    height: 48rem;
 }
