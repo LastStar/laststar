@@ -2,15 +2,22 @@
   (:require
    [rum.core :refer [mount]]
    [potok.core :as ptk]
+   [beicon.core :as rxt]
    [bide.core :as rtr]
+   [cljsjs.material-components]
    [laststar.store :as store]
    [laststar.routes :as routes]
    [laststar.events :as events]
-   [laststar.views :as views]))
+   [laststar.views :as views])
+  (:import goog.events.EventType))
 
 (defn init []
-  (rtr/start!
-   routes/config
-   {:default     :page/intro
-    :on-navigate (fn [page _ _] (ptk/emit! store/main (events/->SetPage page)))})
-  (mount (views/page store/main) (js/document.getElementById "container")))
+  (let [interval 250
+        event-stream (rxt/from-event js/document EventType.WHEEL)
+        scroll-stream (rxt/throttle interval event-stream)]
+    (rxt/on-value scroll-stream #(events/scrolling store/main))
+    (rtr/start!
+     routes/config
+     {:default     :page/hero
+      :on-navigate #(events/set-page store/main %1)})
+  (mount (views/page store/main) (js/document.getElementById "container"))))

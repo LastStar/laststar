@@ -11,45 +11,47 @@
 
 (defonce white "rgba(247, 247, 253, 0.7)")
 (defonce semi-white "rgba(247, 247, 253, 0.4)")
+(defonce languages #{:cz :en})
+(defonce pages ["about" "technology" "contact"])
 
-(rum/defc toolbar < rum/reactive [state]
-  (let [current-lang (-> state (rum/cursor :ui/language) rum/react)
-        change-lang (fn [state lang]
-                      (fn [ev]
-                        (.stopPropagation ev)
-                        (swap! state assoc :ui/language lang)
-                        (js/localStorage.setItem "language" lang)))]
-    [mdc/fixed-toolbar
-     [mdc/toolbar-row
-      [mdc/toolbar-section-start
-       [mdc/toolbar-title (i18n/t current-lang :name)]]
-      [mdc/toolbar-section-end
-       [:div.links
-        (mdcc/link-button {:href "#/about"} (i18n/t current-lang :pages/about))
-        (mdcc/link-button {:href "#/technology"} (i18n/t current-lang :pages/technology))
-        (mdcc/link-button {:href "#/contact"} (i18n/t current-lang :pages/contact))]
-       [:div.flags
-        (let [lang (if (= current-lang "cz") "en" "cz" )]
-          [:img {:key lang
-                 :src (str "img/flags/" lang ".svg")
-                 :on-click (when (not= lang current-lang) (change-lang state lang))}])]
-       "\u00A0"]]]))
+(rum/defc toolbar < rum/static [store current-lang scrolled?]
+  [mdc/fixed-toolbar
+   {:id "toolbar"
+    :class (when-not scrolled? "big")}
+   [mdc/toolbar-row
+    [mdc/toolbar-section-start
+     [mdc/toolbar-title [:a {:href "#/"} (i18n/t current-lang :name)]]]
+    [mdc/toolbar-section-end
+     [:div.links
+      (for [page pages]
+        (mdcc/link-button {:href (str "#/" page)} (i18n/t current-lang (keyword "pages" page))))]
+     [:div.flags
+      (let [alternate-language (first (clojure.set/difference languages #{current-lang}))]
+        [:img {:key alternate-language
+               :src (str "img/flags/" (name alternate-language) ".svg")
+               :on-click #(events/change-language store alternate-language)}])]
+     "\u00A0"]]])
 
 
-(rum/defc hero < rum/static [current-lang]
+(rum/defc hero < rum/static [store current-lang]
   [mdc/section-elevation-3
-   {:class    :hero}
-   [:img {:src "img/logo.svg"}]
+   {:id :hero}
+   [:svg {:view-box "0 0 180 180"}
+    [:title "Logo"]
+    [:rect#background {:fill "#000000" :x "0" :y "0" :width "180" :height "180"}]
+    [:text {:font-family "Monopol" :font-size "192" :font-weight "300" :fill "#FFFFFF"}
+     [:tspan#L {:x 58 :y 155} "L"]
+     [:tspan#S {:x 77 :y 155} "S"]]]
    [mdc/typo-display-2 (i18n/t current-lang :home/hero)]
    (mdcc/link-button
-    {}
+    {:href "#/about"}
     (i18n/t current-lang :home/more))])
 
 
 (rum/defc about < rum/static [current-lang]
   [:section#about.category
    [:div.text
-    [mdc/typo-display-3 (i18n/t current-lang :about/title)]
+    [mdc/typo-display-3 (i18n/t current-lang :pages/about)]
     [mdc/typo-body-1 "Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit."]]
    [:div.image
     {:style {:background-image "url(img/about.jpg)"}}]])
@@ -58,14 +60,14 @@
   [:section#technology.category
    [:div.image.contain {:style {:background-image "url(img/clj.svg)"}}]
    [:div.text
-    [mdc/typo-display-3 (i18n/t current-lang :technology/title)]
+    [mdc/typo-display-3 (i18n/t current-lang :pages/technology)]
     [mdc/typo-body-1 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."]]])
 
 
 (rum/defc contact < rum/static [current-lang]
   [:section#contact.category
    [:div.text
-    [mdc/typo-display-3 (i18n/t current-lang :contact/title)]
+    [mdc/typo-display-3 (i18n/t current-lang :pages/contact)]
     [:div
      [mdc/typo-body-1
       [:a {:href "mailto:info@laststar.eu"} "info@laststar.eu"]]
@@ -81,21 +83,20 @@
 
 
 (rum/defc footer < rum/static [current-lang]
-  (js/console.log current-lang)
   [:footer
-   [:div (i18n/t current-lang :name)]
-   [:div"All Rights Reserved 2017"]])
+   [mdc/typo-body-1 (i18n/t current-lang :name)]
+   [mdc/typo-body-1 "Rights Reserved 2017"]])
 
 
 (rum/defc page < rum/reactive [store]
-  (let [state (utils/get-state store)
-        current-lang (-> state (rum/cursor :ui/language) rum/react)]
-    (js/console.log current-lang)
+  (let [state        (utils/get-state store)
+        current-lang (utils/get-lang-from state)
+        scrolled     (utils/get-from state :ui/scrolled)]
     [:div.content
-     (toolbar state)
+     (toolbar store current-lang scrolled)
      [:main
       [:div
-       (hero current-lang)
+       (hero store current-lang)
        (about current-lang)
        (technology current-lang)
        (contact current-lang)]]

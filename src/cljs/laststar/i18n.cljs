@@ -4,18 +4,19 @@
 (def dicts
   {:tongue/fallback :cz
    :cz
-   {:name  "LastStar.eu"
-    :pages {:about      "O společnosti"
-            :technology "Technologie"
-            :contact    "Kontakt"}
-    :home {:hero "Pokrokové Informační Technologie"
-           :more "Chci se dozvědět více"}
-    :about {:title "O společnosti"}
-    :technology {:title "Technologie"}
-    :contact {:title "Kontakt"
-              :regid "IČO: 29051649"}}
+   {:name       "LastStar.eu"
+    :pages      {:about      "O společnosti"
+                 :technology "Technologie"
+                 :contact    "Kontakt"}
+    :home       {:hero "Pokrokové Informační Technologie"
+                 :more "Chci se dozvědět více"}
+    :contact    {:regid "IČO: 29051649"}}
 
-   :en {}})
+   :en {:pages {:about      "About"
+                :technology "Technology"
+                :contact    "Contact"}
+        :home {:hero "Progressive Information Technologies"
+               :more "I want to know more"}}})
 
 
 (def ^:const t

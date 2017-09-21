@@ -2,7 +2,7 @@
   (:require [potok.core :as ptk]))
 
 (defonce initial-state
-  {:state {:page/current :page/intro
+  {:state {:page/current :page/hero
            :ui.language/current :cz}})
 
 (defonce main
