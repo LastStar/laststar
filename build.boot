@@ -16,7 +16,7 @@
                  [binaryage/devtools            "0.9.4"  :scope "test"]
                  [binaryage/dirac               "1.2.16" :scope "test"]
                  [powerlaces/boot-cljs-devtools "0.2.0"  :scope "test"]
-                 [laststar/mdc-rum              "0.1.0-SNAPSHOT"]])
+                 [laststar/mdc-rum              "0.1.0"]])
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
