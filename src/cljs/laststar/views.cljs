@@ -14,7 +14,7 @@
 (defonce languages #{:cz :en})
 (defonce pages ["about" "technology" "contact"])
 
-(rum/defc toolbar < rum/static [store current-lang scrolled?]
+(rum/defc toolbar < rum/static [store current-lang scrolled? active-page]
   [mdc/fixed-toolbar
    {:id "toolbar"
     :class (when-not scrolled? "big")}
@@ -24,7 +24,12 @@
     [mdc/toolbar-section-end
      [:div.links
       (for [page pages]
-        (mdcc/link-button {:href (str "#/" page)} (i18n/t current-lang (keyword "pages" page))))]
+        (rum/with-key
+          (mdcc/link-button
+           {:href (str "#/" page) 
+            :class (when (and active-page (= (name active-page) page)) "active")}
+           (i18n/t current-lang (keyword "pages" page)))
+          (str page "-link")))]
      [:div.flags
       (let [alternate-language (first (clojure.set/difference languages #{current-lang}))]
         [:img {:key alternate-language
@@ -32,20 +37,25 @@
                :on-click #(events/change-language store alternate-language)}])]
      "\u00A0"]]])
 
+(def svg-logo
+  [:svg {:view-box "0 0 180 180"}
+   [:title "Logo"]
+   [:rect#background {:fill "#000000" :x "0" :y "0" :width "180" :height "180"}]
+   [:text {:font-family "Monopol" :font-size "192" :font-weight "300" :fill "#FFFFFF"}
+    [:tspan#L {:x 58 :y 155} "L"]
+    [:tspan#S {:x 77 :y 155} "S"]]])
+
 
 (rum/defc hero < rum/static [store current-lang]
   [mdc/section-elevation-3
    {:id :hero}
-   [:svg {:view-box "0 0 180 180"}
-    [:title "Logo"]
-    [:rect#background {:fill "#000000" :x "0" :y "0" :width "180" :height "180"}]
-    [:text {:font-family "Monopol" :font-size "192" :font-weight "300" :fill "#FFFFFF"}
-     [:tspan#L {:x 58 :y 155} "L"]
-     [:tspan#S {:x 77 :y 155} "S"]]]
+   [:div.contact [:a {:href "#/contact"} svg-logo]]
+   [:div.logo svg-logo]
    [mdc/typo-display-2 (i18n/t current-lang :home/hero)]
-   (mdcc/link-button
-    {:href "#/about"}
-    (i18n/t current-lang :home/more))])
+   [:div.more
+    (mdcc/link-button
+    {:href "#/about" :class "more"}
+    (i18n/t current-lang :home/more))]])
 
 
 (rum/defc about < rum/static [current-lang]
@@ -85,15 +95,16 @@
 (rum/defc footer < rum/static [current-lang]
   [:footer
    [mdc/typo-body-1 (i18n/t current-lang :name)]
-   [mdc/typo-body-1 "Rights Reserved 2017"]])
+   [mdc/typo-body-1 "All Rights Reserved 2017"]])
 
 
 (rum/defc page < rum/reactive [store]
   (let [state        (utils/get-state store)
         current-lang (utils/get-lang-from state)
-        scrolled     (utils/get-from state :ui/scrolled)]
+        scrolled?    (utils/get-from state :ui/scrolled)
+        active-page  (utils/get-from state :page/active)]
     [:div.content
-     (toolbar store current-lang scrolled)
+     (toolbar store current-lang scrolled? active-page)
      [:main
       [:div
        (hero store current-lang)

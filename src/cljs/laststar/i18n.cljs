@@ -8,14 +8,14 @@
     :pages      {:about      "O společnosti"
                  :technology "Technologie"
                  :contact    "Kontakt"}
-    :home       {:hero "Pokrokové Informační Technologie"
+    :home       {:hero "Pokrokové ICT"
                  :more "Chci se dozvědět více"}
     :contact    {:regid "IČO: 29051649"}}
 
    :en {:pages {:about      "About"
                 :technology "Technology"
                 :contact    "Contact"}
-        :home {:hero "Progressive Information Technologies"
+        :home {:hero "The Progressive ICT"
                :more "I want to know more"}}})
 
 
