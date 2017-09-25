@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'Monopol';
+    src: url('../fonts/MonopolLight.woff') Format('woff'),
+    url('../fonts/MonopolLight.svg') format('svg'),
+    local('☺');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Monopol';
+    src: url('../fonts/Monopol.woff') Format('woff'),
+    url('../fonts/Monopol.svg') format('svg'),
+    local('☺');
+    font-weight: 500;
+    font-style: normal;
+}
+
 html {
     font-size: 16px
 }
@@ -21,9 +39,13 @@ body {
     transition: all 500ms;
 }
 
+.mdc-toolbar__title {
+    width: 100%
+}
+
 .mdc-toolbar__title a {
     font-family:    "Monopol", "Roboto", "Helvetica", sans-serif;
-    font-weight:   600;
+    font-weight:   500;
     font-size: 1.25rem;
     letter-spacing: 0;
     text-decoration: none;
@@ -41,10 +63,6 @@ body {
 
 .mdc-toolbar .links a {
     color: var(--mdc-theme-accent);
-}
-
-.mdc-toolbar .links a.active {
-    color: var(--mdc-theme-text-primary-on-primary);
 }
 
 .mdc-toolbar .flags {

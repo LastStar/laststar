@@ -13,19 +13,13 @@
   (ptk/emit! store (->ChangeLanguage language)))
 
 
-(defrecord UnsetActivePage []
-  ptk/UpdateEvent
-  (update [_ state] (assoc state :page/active nil)))
-
 (defrecord SetPage [page]
   ptk/UpdateEvent
   (update [_ state]
     (cond-> state
       (not (= page (:page/current state)))
       (assoc
-       :page/current page
-       :page/active page
-       :ui/scrolled (not (= page :page/hero)))))
+       :page/current page)))
   ptk/EffectEvent
   (effect [_ state _]
     (when (satisfies? rtr/IRouter routes/config)
@@ -38,12 +32,8 @@
 
 (defrecord Scrolling [offset]
   ptk/UpdateEvent
-  (update [_ state] (assoc state :ui/scrolled (pos? offset)))
-  ptk/WatchEvent
-  (watch [_ state _]
-    (if (:ui/scrolled state)
-      (rxt/just (->UnsetActivePage))
-      (rxt/empty))))
+  (update [_ state] 
+    (assoc state :ui/scrolled (< 100 offset))))
 
 (defn scrolling [store]
   (ptk/emit! store (->Scrolling (.-pageYOffset js/window))))

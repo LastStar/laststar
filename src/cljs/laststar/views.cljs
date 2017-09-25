@@ -14,7 +14,7 @@
 (defonce languages #{:cz :en})
 (defonce pages ["about" "technology" "contact"])
 
-(rum/defc toolbar < rum/static [store current-lang scrolled? active-page]
+(rum/defc toolbar < rum/static [store current-lang scrolled?]
   [mdc/fixed-toolbar
    {:id "toolbar"
     :class (when-not scrolled? "big")}
@@ -26,8 +26,7 @@
       (for [page pages]
         (rum/with-key
           (mdcc/link-button
-           {:href (str "#/" page) 
-            :class (when (and active-page (= (name active-page) page)) "active")}
+           {:href (str "#/" page)}
            (i18n/t current-lang (keyword "pages" page)))
           (str page "-link")))]
      [:div.flags
@@ -88,7 +87,9 @@
      [mdc/typo-body-1
       "Husova 1200/63"
       [:br]
-      "Liberec 460 01 CZ"]]]
+      "Liberec 460 01"
+      [:br]
+      (i18n/t current-lang :contact/cz)]]]
    [:div.image {:style {:background-image "url(img/contact.jpg)"}}]])
 
 
@@ -101,10 +102,9 @@
 (rum/defc page < rum/reactive [store]
   (let [state        (utils/get-state store)
         current-lang (utils/get-lang-from state)
-        scrolled?    (utils/get-from state :ui/scrolled)
-        active-page  (utils/get-from state :page/active)]
+        scrolled?    (utils/get-from state :ui/scrolled)]
     [:div.content
-     (toolbar store current-lang scrolled? active-page)
+     (toolbar store current-lang scrolled?)
      [:main
       [:div
        (hero store current-lang)

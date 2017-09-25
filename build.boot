@@ -25,12 +25,17 @@
  '[powerlaces.boot-cljs-devtools :refer [cljs-devtools dirac]])
 
 
+(deftask sift-css []
+  (comp (sift :add-jar {'cljsjs/material-components #".*.css$"})
+        (sift :move {#".*/material-components.min.inc.css" "css/material-components.min.inc.css"})))
+
 (deftask build
   "This task contains all the necessary steps to produce a build
    You can use 'profile-tasks' like `production` and `development`
    to change parameters (like optimizations level of the cljs compiler)"
   []
   (comp (speak)
+        (sift-css)
         (cljs)))
 
 (deftask run
@@ -66,10 +71,10 @@
   []
   (comp (production)
         (build)
+        (sift-css)
         (target)))
 
 (deftask serve-prod []
   "Serve production build in target directory on port 8080"
   (comp (serve :dir "target" :port 8080)
         (wait)))
-

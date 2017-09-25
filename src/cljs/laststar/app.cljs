@@ -12,9 +12,10 @@
   (:import goog.events.EventType))
 
 (defn init []
-  (let [interval 250
-        event-stream (rxt/from-event js/document EventType.WHEEL)
-        scroll-stream (rxt/throttle interval event-stream)]
+  (let [interval        250
+        wheel-stream    (rxt/from-event js/document EventType.WHEEL)
+        scroll-stream   (rxt/from-event js/document EventType.SCROLL)
+        combined-stream (rxt/throttle interval (rxt/merge scroll-stream wheel-stream))]
     (rxt/on-value scroll-stream #(events/scrolling store/main))
     (rtr/start!
      routes/config
