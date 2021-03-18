@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Monopol';
+    src: url('/css/MonopolLight.woff') Format('woff'),
+    url('/css/MonopolLight.svg') format('svg'),
+    local('☺');
+    font-weight: 300;
+    font-style: normal;
+}
+
+h1 {
+  font-family: "Monopol", "Roboto", "Helvetica", sans-serif;
+  font-size: 8rem;
+  padding: 0.4rem 0;
+}
+
+h2 {
+  font-family: "Monopol", "Roboto", "Helvetica", sans-serif;
+  font-size: 4rem;
+  padding: 0.2rem 0;
+}
+
+h3 {
+  font-family: "Monopol", "Roboto", "Helvetica", sans-serif;
+  font-size: 2rem;
+  padding: 0.1rem 0;
+}
+
+a {
+  font-family: "Vegan", "Roboto", "Helvetica", sans-serif;
+}
+
+footer {
+  padding-top: 12rem;
+}
+
+
